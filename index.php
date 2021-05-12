@@ -4,7 +4,7 @@
 //classe madre
 class Product {
     //attributi
-    public $name;
+    protected $name;
     public $price;
     public $available;
     public $productCode;
@@ -29,6 +29,11 @@ class Product {
         } else{
             return "Al momento non disponibile";
         }
+    }
+
+    // funzione getter
+    public function getName(){
+        return $this -> name;
     }
 
    
@@ -130,7 +135,7 @@ $sports = [
 
     <?php foreach ($miscellanous as $item){ ?>
     
-    <h3><?php echo $item -> name ; ?></h3>
+    <h3><?php echo $item -> getName() ; ?></h3>
     <ul>
         <li>Prezzo: <?php echo $item -> price ; ?> €</li>
         <li>Disponibilità: <?php echo $item-> isAvailable($item->available) ; ?></li>
@@ -145,7 +150,7 @@ $sports = [
     
     <?php foreach ($clothes as $clothe){ ?>
     
-    <h3><?php echo $clothe -> name ; ?></h3>
+    <h3><?php echo $clothe -> getName() ; ?></h3>
     <ul>
         <li>Prezzo: <?php echo $clothe -> price ; ?> €</li>
         <li>Disponibilità: <?php echo $clothe-> isAvailable($clothe->available) ; ?></li>
@@ -166,7 +171,7 @@ $sports = [
     
     <?php foreach ($sports as $sport){ ?>
     
-    <h3><?php echo $sport -> name ; ?></h3>
+    <h3><?php echo $sport -> getName() ; ?></h3>
     <ul>
         <li>Prezzo: <?php echo $sport -> price ; ?> €</li>
         <li>Disponibilità: <?php echo $sport-> isAvailable($sport->available) ; ?></li>
