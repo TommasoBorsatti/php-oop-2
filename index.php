@@ -1,91 +1,10 @@
 
 <?php
 
-//classe madre
-class Product {
-    //attributi
-    protected $name;
-    public $price;
-    public $available;
-    public $productCode;
-    public $weight;
-    public $measures;
+require_once  __DIR__ . "/product.class.php";
+require_once  __DIR__ . "/clothe.class.php";
+require_once  __DIR__ . "/sport.class.php";
 
-    //construct funcion
-    public function __construct(string $_name, float $_price, bool $_available, string $_productCode, float $_weight, string $_measures)
-    {
-        $this -> name = $_name;
-        $this -> price = $_price;
-        $this -> available = $_available;
-        $this -> productCode = $_productCode;
-        $this -> weight = $_weight;
-        $this -> measures = $_measures;
-    }
-
-    //metodi
-    public function isAvailable($item){
-        if ($item == true){
-            return "Disponibile in stock";
-        } else{
-            return "Al momento non disponibile";
-        }
-    }
-
-    // funzione getter
-    public function getName(){
-        return $this -> name;
-    }
-
-   
-}
-
-//Subclasse
-class Clothe  extends Product {
-
-    //attributi figli
-    public $size;
-    public $outfit;
-    public $color;
-    public $genre;
-    public $style;
-    public $fabric;
-
-    //construct funcion
-    public function __construct(string $_name, float $_price, bool $_available, string $_productCode, float $_weight, string $_measures, string $_size, string $_outfit, string $_color, string $_genre, string $_style, string $_fabric)
-    {
-        parent::__construct($_name, $_price, $_available, $_productCode, $_weight, $_measures);
-        $this -> size = $_size;
-        $this -> outfit = $_outfit;
-        $this -> color = $_color;
-        $this -> genre = $_genre;
-        $this -> style = $_style;
-        $this -> fabric = $_fabric;
-
-    }
-
-    
-}
-
-//Subclasse
-class Sport extends Product {
-
-    //attributi figli
-    public $sport;
-    public $brand;
-    public $line;
-
-    //construct funcion
-    public function __construct(string $_name, float $_price, bool $_available, string $_productCode, float $_weight, string $_measures, string $_sport, string $_brand, string $_line)
-    {
-        parent::__construct($_name, $_price, $_available, $_productCode, $_weight, $_measures);
-        $this -> sport = $_sport;
-        $this -> brand = $_brand;
-        $this -> line = $_line;
-
-    }
-
-    
-}
 
 
 //ISTANZE
@@ -102,17 +21,20 @@ $sport_2 = new Sport ("Spalding XS23", 58, true, "HR748FWI", 0.3, "29x29x29", "P
 
 // ARRAY PER FOREACH PROVA+
 
-$miscellanous = [
+$miscellanous = 
+[
     $miscellanous_1,
     $miscellanous_2,
 ];
 
-$clothes = [
+$clothes = 
+[
     $clothe_1,
     $clothe_2
 ];
 
-$sports = [
+$sports = 
+[
     $sport_1,
     $sport_2
 ];
@@ -185,8 +107,6 @@ $sports = [
 
     <?php } ?>
     
-
-
-
 </body>
 </html>
+
